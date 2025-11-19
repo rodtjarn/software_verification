@@ -1,0 +1,52 @@
+{
+  "timestamp": "2025-11-19T14:50:02.399610",
+  "summary": {
+    "total": 3,
+    "covered": 3,
+    "verified": 3,
+    "coverage_percent": 100.0,
+    "verification_percent": 100.0
+  },
+  "requirements": {
+    "REQ-1": {
+      "description": "reverse_string returns the reversed string",
+      "priority": "high",
+      "covered": true,
+      "verified": true,
+      "tests": [
+        {
+          "test": "simple_test.py::test_basic_reversal",
+          "outcome": "PASS"
+        },
+        {
+          "test": "simple_test.py::test_reverse_twice_is_original",
+          "outcome": "PASS"
+        }
+      ]
+    },
+    "REQ-2": {
+      "description": "reversing twice returns the original string",
+      "priority": "high",
+      "covered": true,
+      "verified": true,
+      "tests": [
+        {
+          "test": "simple_test.py::test_reverse_twice_is_original",
+          "outcome": "PASS"
+        }
+      ]
+    },
+    "REQ-3": {
+      "description": "reverse_string handles empty strings",
+      "priority": "medium",
+      "covered": true,
+      "verified": true,
+      "tests": [
+        {
+          "test": "simple_test.py::test_empty_string",
+          "outcome": "PASS"
+        }
+      ]
+    }
+  }
+}

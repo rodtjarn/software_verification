@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 30px; 
+                     box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 8px; }
+        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+        .summary { background: #ecf0f1; padding: 20px; border-radius: 5px; margin: 20px 0; }
+        .stat { display: inline-block; margin: 10px 20px; }
+        .stat-value { font-size: 32px; font-weight: bold; color: #27ae60; }
+        .req { border-left: 4px solid #95a5a6; padding: 15px; margin: 15px 0; 
+               background: #f8f9fa; border-radius: 4px; }
+        .req.verified { border-left-color: #27ae60; background: #d5f4e6; }
+        .req.failing { border-left-color: #e74c3c; background: #fadbd8; }
+        .req.uncovered { border-left-color: #e67e22; background: #fdebd0; }
+        .test { margin: 8px 0 8px 20px; font-family: monospace; font-size: 14px; }
+        .pass { color: #27ae60; }
+        .fail { color: #e74c3c; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Test Coverage Report</h1>
+        <p style="color: #7f8c8d;">Generated: 2025-11-19 14:50:02</p>
+        
+        <div class="summary">
+            <div class="stat">
+                <div>Total Requirements</div>
+                <div class="stat-value">3</div>
+            </div>
+            <div class="stat">
+                <div>Verified</div>
+                <div class="stat-value" style="color: #27ae60;">3</div>
+            </div>
+            <div class="stat">
+                <div>Coverage</div>
+                <div class="stat-value">100%</div>
+            </div>
+        </div>
+        
+        <h2>Requirements</h2>
+
+        <div class="req verified">
+            <div style="font-weight: bold; margin-bottom: 8px;">
+                ✅ REQ-1: reverse_string returns the reversed string
+                <span style="background: #95a5a6; color: white; padding: 2px 8px; 
+                      border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                    high
+                </span>
+            </div>
+<div class='test pass'>✓ simple_test.py::test_basic_reversal</div><div class='test pass'>✓ simple_test.py::test_reverse_twice_is_original</div></div>
+        <div class="req verified">
+            <div style="font-weight: bold; margin-bottom: 8px;">
+                ✅ REQ-2: reversing twice returns the original string
+                <span style="background: #95a5a6; color: white; padding: 2px 8px; 
+                      border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                    high
+                </span>
+            </div>
+<div class='test pass'>✓ simple_test.py::test_reverse_twice_is_original</div></div>
+        <div class="req verified">
+            <div style="font-weight: bold; margin-bottom: 8px;">
+                ✅ REQ-3: reverse_string handles empty strings
+                <span style="background: #95a5a6; color: white; padding: 2px 8px; 
+                      border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                    medium
+                </span>
+            </div>
+<div class='test pass'>✓ simple_test.py::test_empty_string</div></div>
+    </div>
+</body>
+</html>
