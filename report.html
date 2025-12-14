@@ -4,13 +4,19 @@
     <title>Test Report</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
-        .container { max-width: 900px; margin: 0 auto; background: white; padding: 30px; 
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px;
                      box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 8px; }
         h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
         .summary { background: #ecf0f1; padding: 20px; border-radius: 5px; margin: 20px 0; }
         .stat { display: inline-block; margin: 10px 20px; }
         .stat-value { font-size: 32px; font-weight: bold; color: #27ae60; }
-        .req { border-left: 4px solid #95a5a6; padding: 15px; margin: 15px 0; 
+        .coverage-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+        .coverage-table th { background: #34495e; color: white; padding: 12px; text-align: left; }
+        .coverage-table td { padding: 10px; border-bottom: 1px solid #ddd; }
+        .coverage-table tr:hover { background: #f5f5f5; }
+        .coverage-table .req-cell { font-weight: bold; color: #2c3e50; }
+        .coverage-table .test-cell { font-family: monospace; font-size: 12px; }
+        .req { border-left: 4px solid #95a5a6; padding: 15px; margin: 15px 0;
                background: #f8f9fa; border-radius: 4px; }
         .req.verified { border-left-color: #27ae60; background: #d5f4e6; }
         .req.failing { border-left-color: #e74c3c; background: #fadbd8; }
@@ -23,52 +29,120 @@
 <body>
     <div class="container">
         <h1>📊 Test Coverage Report</h1>
-        <p style="color: #7f8c8d;">Generated: 2025-11-19 14:50:02</p>
-        
+        <p style="color: #7f8c8d;">Generated: 2025-12-14 15:13:06</p>
+
         <div class="summary">
             <div class="stat">
                 <div>Total Requirements</div>
-                <div class="stat-value">3</div>
+                <div class="stat-value">4</div>
             </div>
             <div class="stat">
                 <div>Verified</div>
-                <div class="stat-value" style="color: #27ae60;">3</div>
+                <div class="stat-value" style="color: #27ae60;">4</div>
             </div>
             <div class="stat">
                 <div>Coverage</div>
                 <div class="stat-value">100%</div>
             </div>
+            <div class="stat">
+                <div>Test Scenarios</div>
+                <div class="stat-value" style="color: #3498db;">2,002</div>
+            </div>
+            <div class="stat">
+                <div>Feature Coverage</div>
+                <div class="stat-value" style="color: #9b59b6;">90.9%</div>
+            </div>
         </div>
-        
-        <h2>Requirements</h2>
+
+        <h2>Coverage Table</h2>
+        <table class="coverage-table">
+            <thead>
+                <tr>
+                    <th>Requirement</th>
+                    <th>Description</th>
+                    <th>Test Case</th>
+                    <th>Status</th>
+                    <th style="text-align: right;">Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td class="req-cell">REQ-1</td>
+                    <td>reverse_string returns the reversed string</td>
+                    <td class="test-cell">simple_test.py::test_basic_reversal</td>
+                    <td>✅ PASS</td>
+                    <td style="text-align: right;">1</td>
+                </tr>
+                <tr>
+                    <td class="req-cell"></td>
+                    <td></td>
+                    <td class="test-cell">simple_test.py::test_reverse_twice_is_original</td>
+                    <td>✅ PASS</td>
+                    <td style="text-align: right;">500</td>
+                </tr>
+                <tr>
+                    <td class="req-cell">REQ-2</td>
+                    <td>reversing twice returns the original string</td>
+                    <td class="test-cell">simple_test.py::test_reverse_twice_is_original</td>
+                    <td>✅ PASS</td>
+                    <td style="text-align: right;">500</td>
+                </tr>
+                <tr>
+                    <td class="req-cell">REQ-3</td>
+                    <td>reverse_string handles empty strings</td>
+                    <td class="test-cell">simple_test.py::test_empty_string</td>
+                    <td>✅ PASS</td>
+                    <td style="text-align: right;">1</td>
+                </tr>
+                <tr>
+                    <td class="req-cell">REQ-4</td>
+                    <td>reverse_string preserves string length</td>
+                    <td class="test-cell">simple_test.py::test_length_preserved</td>
+                    <td>✅ PASS</td>
+                    <td style="text-align: right;">1,000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Detailed Requirements</h2>
 
         <div class="req verified">
             <div style="font-weight: bold; margin-bottom: 8px;">
                 ✅ REQ-1: reverse_string returns the reversed string
-                <span style="background: #95a5a6; color: white; padding: 2px 8px; 
+                <span style="background: #95a5a6; color: white; padding: 2px 8px;
                       border-radius: 3px; font-size: 12px; margin-left: 10px;">
                     high
                 </span>
             </div>
-<div class='test pass'>✓ simple_test.py::test_basic_reversal</div><div class='test pass'>✓ simple_test.py::test_reverse_twice_is_original</div></div>
+<div style='margin: 10px 0; font-size: 14px;'><strong>Features:</strong> 3/4 verified (75.0%)</div><ul style='margin: 5px 0; font-size: 13px;'><li style='color: #27ae60;'>✓ <strong>F1.1:</strong> handles ASCII characters (501 examples)</li><li style='color: #27ae60;'>✓ <strong>F1.2:</strong> handles Unicode characters (500 examples)</li><li style='color: #e74c3c;'>✗ <strong>F1.3:</strong> handles emojis (❌ NOT TESTED)</li><li style='color: #27ae60;'>✓ <strong>F1.4:</strong> handles whitespace and special characters (501 examples)</li></ul><div style='margin-top: 10px;'><strong>Tests:</strong></div><div class='test pass'>✓ simple_test.py::test_basic_reversal</div><div class='test pass'>✓ simple_test.py::test_reverse_twice_is_original (500 scenarios)</div></div>
         <div class="req verified">
             <div style="font-weight: bold; margin-bottom: 8px;">
                 ✅ REQ-2: reversing twice returns the original string
-                <span style="background: #95a5a6; color: white; padding: 2px 8px; 
+                <span style="background: #95a5a6; color: white; padding: 2px 8px;
                       border-radius: 3px; font-size: 12px; margin-left: 10px;">
                     high
                 </span>
             </div>
-<div class='test pass'>✓ simple_test.py::test_reverse_twice_is_original</div></div>
+<div style='margin: 10px 0; font-size: 14px;'><strong>Features:</strong> 3/3 verified (100.0%)</div><ul style='margin: 5px 0; font-size: 13px;'><li style='color: #27ae60;'>✓ <strong>F2.1:</strong> idempotency with ASCII strings (500 examples)</li><li style='color: #27ae60;'>✓ <strong>F2.2:</strong> idempotency with Unicode strings (500 examples)</li><li style='color: #27ae60;'>✓ <strong>F2.3:</strong> idempotency with mixed content (500 examples)</li></ul><div style='margin-top: 10px;'><strong>Tests:</strong></div><div class='test pass'>✓ simple_test.py::test_reverse_twice_is_original (500 scenarios)</div></div>
         <div class="req verified">
             <div style="font-weight: bold; margin-bottom: 8px;">
                 ✅ REQ-3: reverse_string handles empty strings
-                <span style="background: #95a5a6; color: white; padding: 2px 8px; 
+                <span style="background: #95a5a6; color: white; padding: 2px 8px;
                       border-radius: 3px; font-size: 12px; margin-left: 10px;">
                     medium
                 </span>
             </div>
-<div class='test pass'>✓ simple_test.py::test_empty_string</div></div>
+<div style='margin: 10px 0; font-size: 14px;'><strong>Features:</strong> 1/1 verified (100.0%)</div><ul style='margin: 5px 0; font-size: 13px;'><li style='color: #27ae60;'>✓ <strong>F3.1:</strong> empty string returns empty string (1 examples)</li></ul><div style='margin-top: 10px;'><strong>Tests:</strong></div><div class='test pass'>✓ simple_test.py::test_empty_string</div></div>
+        <div class="req verified">
+            <div style="font-weight: bold; margin-bottom: 8px;">
+                ✅ REQ-4: reverse_string preserves string length
+                <span style="background: #95a5a6; color: white; padding: 2px 8px;
+                      border-radius: 3px; font-size: 12px; margin-left: 10px;">
+                    high
+                </span>
+            </div>
+<div style='margin: 10px 0; font-size: 14px;'><strong>Features:</strong> 3/3 verified (100.0%)</div><ul style='margin: 5px 0; font-size: 13px;'><li style='color: #27ae60;'>✓ <strong>F4.1:</strong> length preserved for ASCII (1,000 examples)</li><li style='color: #27ae60;'>✓ <strong>F4.2:</strong> length preserved for Unicode (1,000 examples)</li><li style='color: #27ae60;'>✓ <strong>F4.3:</strong> length preserved for empty strings (1,000 examples)</li></ul><div style='margin-top: 10px;'><strong>Tests:</strong></div><div class='test pass'>✓ simple_test.py::test_length_preserved (1,000 scenarios)</div></div>
     </div>
 </body>
 </html>

@@ -1,11 +1,18 @@
 {
-  "timestamp": "2025-11-19T14:50:02.399610",
+  "timestamp": "2025-12-14T15:13:06.910695",
   "summary": {
-    "total": 3,
-    "covered": 3,
-    "verified": 3,
+    "total": 4,
+    "covered": 4,
+    "verified": 4,
     "coverage_percent": 100.0,
-    "verification_percent": 100.0
+    "verification_percent": 100.0,
+    "total_test_scenarios": 2002,
+    "total_tests": 5,
+    "total_features": 11,
+    "features_covered": 10,
+    "features_verified": 10,
+    "feature_coverage_percent": 90.9,
+    "feature_verification_percent": 90.9
   },
   "requirements": {
     "REQ-1": {
@@ -16,13 +23,41 @@
       "tests": [
         {
           "test": "simple_test.py::test_basic_reversal",
-          "outcome": "PASS"
+          "outcome": "PASS",
+          "hypothesis_examples": 1
         },
         {
           "test": "simple_test.py::test_reverse_twice_is_original",
-          "outcome": "PASS"
+          "outcome": "PASS",
+          "hypothesis_examples": 500
         }
-      ]
+      ],
+      "features": {
+        "F1.1": {
+          "description": "handles ASCII characters",
+          "covered": true,
+          "verified": true,
+          "examples": 501
+        },
+        "F1.2": {
+          "description": "handles Unicode characters",
+          "covered": true,
+          "verified": true,
+          "examples": 500
+        },
+        "F1.3": {
+          "description": "handles emojis",
+          "covered": false,
+          "verified": false,
+          "examples": 0
+        },
+        "F1.4": {
+          "description": "handles whitespace and special characters",
+          "covered": true,
+          "verified": true,
+          "examples": 501
+        }
+      }
     },
     "REQ-2": {
       "description": "reversing twice returns the original string",
@@ -32,9 +67,30 @@
       "tests": [
         {
           "test": "simple_test.py::test_reverse_twice_is_original",
-          "outcome": "PASS"
+          "outcome": "PASS",
+          "hypothesis_examples": 500
         }
-      ]
+      ],
+      "features": {
+        "F2.1": {
+          "description": "idempotency with ASCII strings",
+          "covered": true,
+          "verified": true,
+          "examples": 500
+        },
+        "F2.2": {
+          "description": "idempotency with Unicode strings",
+          "covered": true,
+          "verified": true,
+          "examples": 500
+        },
+        "F2.3": {
+          "description": "idempotency with mixed content",
+          "covered": true,
+          "verified": true,
+          "examples": 500
+        }
+      }
     },
     "REQ-3": {
       "description": "reverse_string handles empty strings",
@@ -44,9 +100,133 @@
       "tests": [
         {
           "test": "simple_test.py::test_empty_string",
-          "outcome": "PASS"
+          "outcome": "PASS",
+          "hypothesis_examples": 1
         }
-      ]
+      ],
+      "features": {
+        "F3.1": {
+          "description": "empty string returns empty string",
+          "covered": true,
+          "verified": true,
+          "examples": 1
+        }
+      }
+    },
+    "REQ-4": {
+      "description": "reverse_string preserves string length",
+      "priority": "high",
+      "covered": true,
+      "verified": true,
+      "tests": [
+        {
+          "test": "simple_test.py::test_length_preserved",
+          "outcome": "PASS",
+          "hypothesis_examples": 1000
+        }
+      ],
+      "features": {
+        "F4.1": {
+          "description": "length preserved for ASCII",
+          "covered": true,
+          "verified": true,
+          "examples": 1000
+        },
+        "F4.2": {
+          "description": "length preserved for Unicode",
+          "covered": true,
+          "verified": true,
+          "examples": 1000
+        },
+        "F4.3": {
+          "description": "length preserved for empty strings",
+          "covered": true,
+          "verified": true,
+          "examples": 1000
+        }
+      }
     }
+  },
+  "feature_coverage": {
+    "F1.1": [
+      {
+        "test": "simple_test.py::test_basic_reversal",
+        "outcome": "PASS",
+        "examples": 1
+      },
+      {
+        "test": "simple_test.py::test_reverse_twice_is_original",
+        "outcome": "PASS",
+        "examples": 500
+      }
+    ],
+    "F1.4": [
+      {
+        "test": "simple_test.py::test_basic_reversal",
+        "outcome": "PASS",
+        "examples": 1
+      },
+      {
+        "test": "simple_test.py::test_reverse_twice_is_original",
+        "outcome": "PASS",
+        "examples": 500
+      }
+    ],
+    "F1.2": [
+      {
+        "test": "simple_test.py::test_reverse_twice_is_original",
+        "outcome": "PASS",
+        "examples": 500
+      }
+    ],
+    "F2.1": [
+      {
+        "test": "simple_test.py::test_reverse_twice_is_original",
+        "outcome": "PASS",
+        "examples": 500
+      }
+    ],
+    "F2.2": [
+      {
+        "test": "simple_test.py::test_reverse_twice_is_original",
+        "outcome": "PASS",
+        "examples": 500
+      }
+    ],
+    "F2.3": [
+      {
+        "test": "simple_test.py::test_reverse_twice_is_original",
+        "outcome": "PASS",
+        "examples": 500
+      }
+    ],
+    "F3.1": [
+      {
+        "test": "simple_test.py::test_empty_string",
+        "outcome": "PASS",
+        "examples": 1
+      }
+    ],
+    "F4.1": [
+      {
+        "test": "simple_test.py::test_length_preserved",
+        "outcome": "PASS",
+        "examples": 1000
+      }
+    ],
+    "F4.2": [
+      {
+        "test": "simple_test.py::test_length_preserved",
+        "outcome": "PASS",
+        "examples": 1000
+      }
+    ],
+    "F4.3": [
+      {
+        "test": "simple_test.py::test_length_preserved",
+        "outcome": "PASS",
+        "examples": 1000
+      }
+    ]
   }
 }

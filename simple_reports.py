@@ -532,6 +532,41 @@ def generate_table(coverage_data, feature_coverage_data=None):
     output.append(separator)
     output.append("")
 
+    # Add feature coverage details
+    output.append("="*120)
+    output.append("FEATURE COVERAGE DETAILS")
+    output.append("="*120)
+    output.append("")
+
+    # Group features by requirement
+    for req_id in sorted(REQUIREMENTS.keys()):
+        req = REQUIREMENTS[req_id]
+        if 'features' not in req:
+            continue
+
+        req_features = req['features']
+        covered_count = sum(1 for feat_id in req_features.keys() if feat_id in feature_coverage_data)
+        verified_count = sum(1 for feat_id in req_features.keys()
+                            if feat_id in feature_coverage_data
+                            and all(t['outcome'] == 'PASS' for t in feature_coverage_data[feat_id]))
+
+        pct = round(verified_count/len(req_features)*100, 1) if req_features else 0
+        output.append(f"{req_id}: {req['description']}")
+        output.append(f"  Features: {verified_count}/{len(req_features)} verified ({pct}%)")
+        output.append("")
+
+        for feat_id, feat_desc in sorted(req_features.items()):
+            if feat_id in feature_coverage_data:
+                tests = feature_coverage_data[feat_id]
+                all_pass = all(t['outcome'] == 'PASS' for t in tests)
+                total_examples = sum(t.get('examples', 1) for t in tests)
+                symbol = "✓" if all_pass else "✗"
+                output.append(f"    {symbol} {feat_id}: {feat_desc} ({total_examples:,} examples)")
+            else:
+                output.append(f"    ✗ {feat_id}: {feat_desc} (❌ NOT TESTED)")
+
+        output.append("")
+
     # Write to file
     with open("report_table.txt", "w") as f:
         f.write("\n".join(output))
