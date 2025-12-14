@@ -1,0 +1,4 @@
+# file: /home/per/Work/sofware_verification/conftest.py
+# hypothesis_version: 6.148.1
+
+[100, '\n⚠️  Failing:', '\n✅ Verified:', '\n❌ Uncovered:', ' == ', '+', '-', '0', '=', 'Coverage Report', 'Coverage Table', 'FAIL', 'Generating Reports', 'No tests', 'Not captured', 'PASS', 'Trying example:', '_requirements', 'assert', 'call', 'callspec', 'description', 'error_message', 'error_type', 'examples', 'expected', 'failure', 'function', 'hypothesis', 'hypothesis_data', 'hypothesis_examples', 'input', 'is_hypothesis', 'max_examples', 'outcome', 'response', 'stimuli', 'test', '✅ PASS', '✓', '✗', '❌ FAIL', '❌ UNCOVERED']

@@ -1,0 +1,4 @@
+# file: /home/per/Work/sofware_verification/simple_test_failing.py
+# hypothesis_version: 6.148.1
+
+['REQ-1', 'REQ-2', 'REQ-3', 'hello', 'olleh', 'wrong']
