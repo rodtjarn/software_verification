@@ -29,8 +29,8 @@ python check_coverage.py --min-verification 95
 
 After running tests, you'll see:
 - **Requirements**: 4/4 verified (100%)
-- **Features**: 10/11 verified (90.9%)
-- **Test Scenarios**: 2,002 examples automatically generated
+- **Features**: 11/11 verified (100%)
+- **Test Scenarios**: 2,003 examples automatically generated
 - **Tests**: 5 tests covering all requirements
 
 ## How It Works
@@ -84,19 +84,19 @@ You'll see:
 Total Requirements: 4
 Covered: 4
 Verified (passing): 4
-Total Test Scenarios: 2,002 examples tested
+Total Test Scenarios: 2,003 examples tested
 
 =============================== Feature Coverage ===============================
 
 Total Features: 11
-Covered: 10 (90.9%)
-Verified: 10 (90.9%)
+Covered: 11 (100%)
+Verified: 11 (100%)
 
 REQ-1: reverse_string returns the reversed string
-  Features: 3/4 verified (75.0%)
+  Features: 4/4 verified (100%)
     ✓ F1.1: handles ASCII characters (501 examples)
     ✓ F1.2: handles Unicode characters (500 examples)
-    ✗ F1.3: handles emojis (NOT TESTED)
+    ✓ F1.3: handles emojis (1 example)
     ✓ F1.4: handles whitespace and special characters (501 examples)
 
 ------------------------------ Generating Reports ------------------------------
@@ -197,7 +197,7 @@ The framework immediately shows:
 - **Uncovered features**: Features not tested
 - **Failing tests**: Which requirements/features are failing
 
-Example output:
+Example output showing gaps (when they exist):
 ```
 REQ-1: reverse_string returns the reversed string
   Features: 3/4 verified (75.0%)
@@ -205,6 +205,8 @@ REQ-1: reverse_string returns the reversed string
     ✓ F1.2: handles Unicode characters
     ✗ F1.3: handles emojis (NOT TESTED)  ← Gap detected!
     ✓ F1.4: handles whitespace
+
+Note: In the current example, all features are now tested (100% coverage).
 ```
 
 ### CI/CD Integration
@@ -313,7 +315,7 @@ The framework adds minimal overhead:
 - **Report generation**: <0.5 seconds
 - **Total overhead**: <5% of test execution time
 
-With 2,002 test scenarios, total runtime is typically under 2 seconds.
+With 2,003 test scenarios, total runtime is typically under 2 seconds.
 
 ## Viewing Reports
 
